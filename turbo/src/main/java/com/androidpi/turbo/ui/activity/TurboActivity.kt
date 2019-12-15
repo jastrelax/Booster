@@ -88,7 +88,7 @@ class TurboActivity : AppCompatActivity(), PermissionCallbacks {
         private lateinit var fragments: List<Fragment>
 
         init {
-            fragments = listOf(HomeFragment.newInstance(), PlaceholderFragment.newInstance(1))
+            fragments = listOf<Fragment>(HomeFragment.newInstance(), PlaceholderFragment.newInstance(1))
         }
 
         override fun getItem(position: Int): Fragment {

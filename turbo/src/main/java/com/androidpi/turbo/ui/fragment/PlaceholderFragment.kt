@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.androidpi.app.base.ui.BaseFragment
 import com.androidpi.turbo.R
+import com.androidpi.turbo.base.ui.BaseFragment
 
 class PlaceholderFragment : BaseFragment() {
         override fun onCreateView(

@@ -11,9 +11,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
-import com.androidpi.app.base.ui.BaseFragment
 import com.androidpi.turbo.NavCenter
 import com.androidpi.turbo.R
+import com.androidpi.turbo.base.ui.BaseFragment
 import com.androidpi.turbo.business.model.HomeEntryItem
 import com.androidpi.turbo.ui.viewholder.HomeEntryViewHolder
 import com.androidpi.turbo.utils.AppHelper

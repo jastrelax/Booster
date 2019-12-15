@@ -9,8 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import com.androidpi.app.common.utils.AppUtils
-import com.androidpi.app.common.utils.ToastUtils
+import com.androidpi.turbo.common.ToastUtils
 
 /**
  * Created on 2019-12-12.
@@ -32,18 +31,13 @@ object NavCenter {
             infos.addAll(tasks)
         }
         infos.forEach {
-            if (AppUtils.has23()) {
-                if (it.baseActivity.equals(mainComponent)) {
-                    am.moveTaskToFront(it.id, 0)
-                    return@forEach
-                }
-            } else {
-                if (it.baseIntent.equals(mainIntent)) {
-                    am.moveTaskToFront(it.id, 0)
-                    return@forEach
-                }
+            if (it.baseIntent.equals(mainIntent)) {
+                am.moveTaskToFront(it.id, 0)
+                return@forEach
             }
         }
+        mainIntent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(mainIntent)
     }
 
     private fun launchIntent(context: Context?) =
