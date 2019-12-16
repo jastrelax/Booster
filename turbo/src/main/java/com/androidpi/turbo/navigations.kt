@@ -44,7 +44,7 @@ object NavCenter {
 
     fun navToAppDetailSettings(context: Context?) {
         if (context == null) {
-            ToastUtils.shortToast(Turbo.instance()?.context, "空的")
+            ToastUtils.shortToast(Turbo.context, "空的")
             return
         }
         val intent =

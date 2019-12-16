@@ -39,20 +39,22 @@ import timber.log.Timber
 import timber.log.Timber.DebugTree
 import java.util.*
 
-class Turbo {
+object Turbo {
     var context: Context? = null
     var handler = Handler()
+
     private fun init(context: Context) {
+        if (!BuildConfig.DEBUG) {
+            return
+        }
         this.context = context.applicationContext
         // Turbo
         val title = context.getString(R.string.turbo_title_activity_turbo)
         shortcutDel(title)
         shortcutAdd(title)
-        if (!BuildConfig.DEBUG) {
-            return
-        }
         if (context !is Application) {
-            Toast.makeText(context, R.string.turbo_not_in_application_context, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.turbo_not_in_application_context, Toast.LENGTH_SHORT)
+                .show()
         } else {
             (context as Application).registerActivityLifecycleCallbacks(lifecycleCallbacks)
         }
@@ -71,7 +73,6 @@ class Turbo {
             window.show()
         }
     }
-
 
 
     private fun shortcutAdd(name: String) {
@@ -113,7 +114,8 @@ class Turbo {
         val pm = context!!.packageManager
         val main = pm.getLaunchIntentForPackage(context!!.packageName)
         if (main != null && main.component != null) {
-            val shortcutInfoCompat = ShortcutInfoCompat.Builder(context!!, name)
+            val longLabel = context!!.applicationInfo.loadLabel(pm).toString() + " " + name
+            val shortcutInfoCompat = ShortcutInfoCompat.Builder(context!!, longLabel)
                 .setActivity(main.component)
                 .setIcon(
                     IconCompat.createWithResource(
@@ -121,6 +123,7 @@ class Turbo {
                     )
                 )
                 .setIntent(shortcutIntent)
+                .setLongLabel(longLabel)
                 .setShortLabel(name)
                 .build()
             val shortcutInfoCompatList: MutableList<ShortcutInfoCompat> =
@@ -202,24 +205,22 @@ class Turbo {
         }
     }
 
-    companion object {
-        const val REQ_CODE_OVERLAY = 1001
-        @Volatile
-        private var instance: Turbo? = null
+    const val REQ_CODE_OVERLAY = 1001
+//        @Volatile
+//        private var instance: Turbo? = null
+//
+//        fun instance(): Turbo? {
+//            if (instance == null) {
+//                synchronized(Turbo::class.java) {
+//                    if (instance == null) {
+//                        instance = Turbo()
+//                    }
+//                }
+//            }
+//            return instance
+//        }
 
-        fun instance(): Turbo? {
-            if (instance == null) {
-                synchronized(Turbo::class.java) {
-                    if (instance == null) {
-                        instance = Turbo()
-                    }
-                }
-            }
-            return instance
-        }
-
-        fun install(context: Context) {
-            instance()!!.init(context)
-        }
+    fun install(context: Context) {
+        init(context)
     }
 }

@@ -38,6 +38,10 @@
                 <action android:name="com.androidpi.turbo.service.ProfileService"/>
             </intent-filter>
         </service>
+
+        <provider
+            android:authorities="com.androidpi.turbo"
+            android:name=".contentprovider.TurboInstaller"/>
     </application>
 
 </manifest>
