@@ -13,11 +13,11 @@ class PlaceholderFragment : BaseFragment() {
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
         ): View? {
             val rootView =
-                inflater.inflate(R.layout.fragment_profile, container, false)
+                inflater.inflate(R.layout.turbo_fragment_profile, container, false)
             val textView =
                 rootView.findViewById<View>(R.id.section_label) as TextView
             textView.text = getString(
-                R.string.section_format,
+                R.string.turbo_section_format,
                 arguments!!.getInt(ARG_SECTION_NUMBER)
             )
             return rootView

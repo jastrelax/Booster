@@ -8,6 +8,6 @@ import com.androidpi.turbo.R;
 public class BaseScreen extends BaseDialogFragment {
 
     {
-        setStyle(STYLE_NO_FRAME, R.style.Fragment_Fullscreen);
+        setStyle(STYLE_NO_FRAME, R.style.TurboFragment_Fullscreen);
     }
 }

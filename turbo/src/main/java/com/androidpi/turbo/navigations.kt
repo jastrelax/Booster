@@ -19,7 +19,6 @@ object NavCenter {
 
     fun navToApp(context: Context?) {
         val mainIntent = launchIntent(context)
-        val mainComponent = launchIntent(context)?.component
         val am = context?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         var infos = ArrayList<ActivityManager.RecentTaskInfo>()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

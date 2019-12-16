@@ -30,7 +30,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     private boolean canceledOnTouchOutside = true;
 
     {
-        setStyle(STYLE_NO_TITLE, R.style.Dialog);
+        setStyle(STYLE_NO_TITLE, R.style.TurboDialog);
     }
 
     @Override

@@ -45,14 +45,14 @@ class Turbo {
     private fun init(context: Context) {
         this.context = context.applicationContext
         // Turbo
-        val title = context.getString(R.string.title_activity_turbo)
+        val title = context.getString(R.string.turbo_title_activity_turbo)
         shortcutDel(title)
         shortcutAdd(title)
         if (!BuildConfig.DEBUG) {
             return
         }
         if (context !is Application) {
-            Toast.makeText(context, R.string.not_in_application_context, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.turbo_not_in_application_context, Toast.LENGTH_SHORT).show()
         } else {
             (context as Application).registerActivityLifecycleCallbacks(lifecycleCallbacks)
         }
@@ -117,7 +117,7 @@ class Turbo {
                 .setActivity(main.component)
                 .setIcon(
                     IconCompat.createWithResource(
-                        context, R.mipmap.ic_turbo_launcher
+                        context, R.mipmap.turbo_ic_turbo_launcher
                     )
                 )
                 .setIntent(shortcutIntent)
@@ -139,7 +139,7 @@ class Turbo {
                 ShortcutInfoCompat.Builder(context!!, "pin$name")
                     .setIcon(
                         IconCompat.createWithResource(
-                            context, R.mipmap.ic_turbo_launcher
+                            context, R.mipmap.turbo_ic_turbo_launcher
                         )
                     )
                     .setIntent(shortcutIntent)

@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, null)
+        val view = inflater.inflate(R.layout.turbo_fragment_home, null)
         return view
     }
 
@@ -80,7 +80,7 @@ class HomeFragment : BaseFragment(){
             icon?.setBounds(0, 0, width, height)
             icon?.draw(canvas)
 
-            var icInfo = ContextCompat.getDrawable(context!!, R.drawable.ic_info)
+            var icInfo = ContextCompat.getDrawable(context!!, R.drawable.turbo_ic_info)
             val bounds = Rect()
             bounds.set(width/2, height/2, width, height)
             icInfo?.bounds = bounds
@@ -95,7 +95,7 @@ class HomeFragment : BaseFragment(){
                 }
             })
             item3.title = "开发者选项"
-            item3.iconRes = R.drawable.ic_development_options
+            item3.iconRes = R.drawable.turbo_ic_development_options
 
             // 设置
             val item4 = HomeEntryItem(context, object: Runnable {
@@ -114,7 +114,7 @@ class HomeFragment : BaseFragment(){
         }
 
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): HomeEntryViewHolder {
-            val view = LayoutInflater.from(p0.context).inflate(R.layout.vh_home_entry, p0, false)
+            val view = LayoutInflater.from(p0.context).inflate(R.layout.turbo_vh_home_entry, p0, false)
             return HomeEntryViewHolder(view)
         }
 

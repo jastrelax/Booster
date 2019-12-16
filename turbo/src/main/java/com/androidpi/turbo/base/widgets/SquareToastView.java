@@ -29,7 +29,7 @@ public class SquareToastView extends FrameLayout {
 
     public SquareToastView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        inflate(context, R.layout.view_square_toast, this);
+        inflate(context, R.layout.turbo_view_square_toast, this);
         ivIcon = findViewById(R.id.iv_icon);
         tvMsg = findViewById(R.id.tv_msg);
     }
