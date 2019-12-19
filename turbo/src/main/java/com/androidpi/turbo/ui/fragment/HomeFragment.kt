@@ -106,6 +106,13 @@ class HomeFragment : BaseFragment(){
             item4.title = "系统设置"
             item4.icon = AppHelper.systemSettingsIcon(context)
 
+//            // 展示布局边界
+//            val item5 = HomeEntryItem(context, object: Runnable {
+//                override fun run() {
+//
+//                }
+//            })
+//            item5.title = "展示布局边界"
             homeEntries.add(item1)
             homeEntries.add(item2)
             homeEntries.add(item3)

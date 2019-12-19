@@ -18,9 +18,9 @@
             android:label="@string/turbo_title_activity_turbo"
             android:theme="@style/TurboAppTheme.NoActionBar"
             android:icon="@mipmap/turbo_ic_turbo_launcher"
+            android:roundIcon="@mipmap/turbo_ic_turbo_launcher_round"
             android:launchMode="singleTask"
-            android:taskAffinity="com.androidpi.turbo"
-            android:roundIcon="@mipmap/turbo_ic_turbo_launcher_round">
+            android:taskAffinity="${applicationId}.turbo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
@@ -40,7 +40,7 @@
         </service>
 
         <provider
-            android:authorities="com.androidpi.turbo"
+            android:authorities="${applicationId}.turbo"
             android:name=".contentprovider.TurboInstaller"/>
     </application>
 
